@@ -35,11 +35,19 @@ public class FirstRPSGame
         }
 
     //Case II: You WIN :)
-
+        if ((yourChoice == 0 && computerChoice == 2) ||
+                (yourChoice == 1 && computerChoice == 0) ||
+                (yourChoice == 2 && computerChoice == 1)){
+            JOptionPane.showMessageDialog(null, "You win!");
+        }
 
 
     //Case III: You lose :(
-
+        if ((yourChoice == 2 && computerChoice == 0) ||
+                (yourChoice == 0 && computerChoice == 1) ||
+                (yourChoice == 1 && computerChoice == 2)){
+            JOptionPane.showMessageDialog(null, "You lose.");
+        }
 
     }
 }
