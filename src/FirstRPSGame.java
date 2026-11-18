@@ -18,7 +18,7 @@ public class FirstRPSGame
         JOptionPane.showMessageDialog(null, "Welcome to Paper, Scissor and Rock");
         JOptionPane.showMessageDialog(null,"Let me remind you the rule first: \n Scissor cuts" +
                 " paper, paper covers rock,\n" + "and rock breaks scissors. ");
-        JOptionPane.showMessageDialog(null,"0: Rock\n 1: Paper\n2: Scissor");
+        JOptionPane.showMessageDialog(null,"0: Rock\n1: Paper\n2: Scissor");
         JOptionPane.showMessageDialog(null, "First to 3 wins!");
 
         rounds = 0;
@@ -32,8 +32,20 @@ public class FirstRPSGame
             JOptionPane.showMessageDialog(null, "Round: " + rounds);
 
             //Get your choice
-            yourInput = JOptionPane.showInputDialog("Now tell me your choice!");
-            yourChoice = Integer.parseInt(yourInput);
+            boolean validChoice = false;
+            yourChoice = -1;
+
+            while(!validChoice){
+                try{
+                    yourInput = JOptionPane.showInputDialog("Now tell me your choice!");
+                    yourChoice = Integer.parseInt(yourInput);
+                    validChoice = true;
+                }catch (IllegalArgumentException e){
+                    JOptionPane.showMessageDialog(null, "Invalid input." +
+                            " Please enter a number from 0-2.");
+                }
+            }
+
 
             //Get computer choice
             computerChoice = (int) (Math.random() * 10); //generate a random number
